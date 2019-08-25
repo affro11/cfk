@@ -66,15 +66,16 @@
 				
                 
             ];
-            	if (stripos($getCode, 'h1 style="top: 0;">')) {
-				preg_match_all('/<span id="p_item_name">KFC VALUE 100K VOUCHER</span>/', $getCode);
-		echo ''.$i.'.LIVE => http://egift.id/'.$random.';
-		$data =  "http://egift.id/".$random."  \r\n";
+            	$page = $curl->get('http://egift.id/'.$random.'');
+	if (stripos($page, 'h1 style="top: 0;">')) {
+				preg_match_all('/<span id="p_item_name">KFC VALUE 100K VOUCHER</span>/', $page);
+		echo ''.$i.'.LIVE => http://egift.id/'.$random.' | '.$nom[1][0].'';
+		$data =  "http://egift.id/".$random." | '.$nom[1][0].' \r\n";
 		$fh = fopen("cdy-kfc.txt", "a");
 		fwrite($fh, $data);
 		fclose($fh);
 									echo "\n";
-	}else	if (stripos($getCode, '<h1>E-VOUCHER</h1>')) {
+	}else	if (stripos($page, '<h1>E-VOUCHER</h1>')) {
 
 		echo ''.$i.'.DIE => http://egift.id/'.$random.'';
 									echo "\n";
