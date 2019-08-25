@@ -82,4 +82,9 @@
         }
     }
         getCode();
+				flush();
+		ob_flush();
+	$i++;
+}
+?>
 ?>
