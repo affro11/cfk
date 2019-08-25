@@ -2,7 +2,8 @@
 // @RiyanCoday //
 date_default_timezone_set("Asia/Jakarta");
 error_reporting(0);
-function getCurl($data) {
+class curl {
+	function getCurl($data) {
 		
             // echo "<pre>";
             // print_r($data);
@@ -32,6 +33,7 @@ function getCurl($data) {
             if ($err) return $err;
             else return $response;
         }
+}
 function x($length)
 {
     $data = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
