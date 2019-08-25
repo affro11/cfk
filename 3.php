@@ -74,7 +74,7 @@
 		fwrite($fh, $data);
 		fclose($fh);
 									echo "\n";
-	}else	if (stripos($page, '<h1>E-VOUCHER</h1>')) {
+	}else	if (stripos($getCode, '<h1>E-VOUCHER</h1>')) {
 
 		echo ''.$i.'.DIE => http://egift.id/'.$random.'';
 									echo "\n";
