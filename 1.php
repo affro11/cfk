@@ -61,7 +61,7 @@
                 ],
                 'method' => "GET",
 				if (stripos($getCode, 'h1 style="top: 0;">')) {
-				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $page, $nom);
+				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $getCode, $nom);
                 
             ];
             $results['data']['code'] = $curl['code'];
