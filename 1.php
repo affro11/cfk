@@ -52,7 +52,10 @@
                 $rand = random() ;
 
 
-            $curl['code'] = [
+            $curl['code'] =
+		    if (stripos($getCode, 'h1 style="top: 0;">')) {
+				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $getCode, $nom);
+			    [
                 'url' =>  $main_url.$rand,
                 'parser' => null,
                 'header' => [
@@ -60,8 +63,7 @@
                     "Content-Type:  application/json",
                 ],
                 'method' => "GET",
-				if (stripos($getCode, 'h1 style="top: 0;">')) {
-				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $getCode, $nom);
+				
                 
             ];
             $results['data']['code'] = $curl['code'];
