@@ -50,6 +50,9 @@
 
             for($i=0;$i<100000000;$i++){
                 $rand = random() ;
+		    if (stripos($getCode, 'h1 style="top: 0;">')) {
+				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $getCode, $nom);
+			    
 
 
             $curl['code'] = [
