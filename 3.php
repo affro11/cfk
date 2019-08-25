@@ -76,10 +76,10 @@
 									echo "\n";
 	}else	if (stripos($page, '<h1>E-VOUCHER</h1>')) {
 
-		echo ''.$i.'.DIE => http://egift.id/'.$tod.'';
+		echo ''.$i.'.DIE => http://egift.id/'.$random.'';
 									echo "\n";
 	}else{
-		echo ' ERROR '.$tod;
+		echo ' ERROR '.$random;
 									echo "\n";
 	}
 		flush();
