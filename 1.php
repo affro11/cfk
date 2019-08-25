@@ -30,8 +30,8 @@
             else return $response;
         }
         
-        function random($length = 9) {
-            $characters = '0123456789';
+        function random($length = 8) {
+            $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
             $charactersLength = strlen($characters);
             $randomString = '';
             for ($i = 0; $i < $length; $i++) {
@@ -42,7 +42,7 @@
 
 
         function getCode() {
-            $main_url = "http://sepin.giftn.co.id/api/EPin/AuthEPin?cid=GFN0305&wid=kfc&epin=";
+            $main_url = "http://egift.id/";
             // return json_encode([]);
             
            
@@ -53,7 +53,7 @@
 
 
             $curl['code'] = [
-                'url' =>  $main_url."811".$rand,
+                'url' =>  $main_url.$rand,
                 'parser' => null,
                 'header' => [
                     // "Authorization:  Basic ".$this->token,
