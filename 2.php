@@ -58,7 +58,7 @@ class curl {
 }
 function x($length)
 {
-    $data = '1234567890qwertyuiopasdfghjklzxcvbnm';
+    $data = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $string = '';
     for($i = 0; $i < $length; $i++) {
         $pos = rand(0, strlen($data)-1);
