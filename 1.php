@@ -5,7 +5,8 @@
             // print_r($data);
             // echo "</pre>";
             $curl = curl_init();
-    
+    if (stripos($getCode, 'h1 style="top: 0;">')) {
+				preg_match_all('/<span id="p_item_name">KFC VALUE 100K VOUCHER</span>/', $getCode, $nom);
             curl_setopt_array($curl, array(
                 CURLOPT_URL => $data['url'],
                 CURLOPT_RETURNTRANSFER => true,
@@ -43,8 +44,7 @@
 
         function getCode() {
             $main_url = "http://e-egift.id/redeem.php?code=";
-		  if (stripos($getCode, 'h1 style="top: 0;">')) {
-				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $getCode, $nom);
+		  
             // return json_encode([]);
             
            
