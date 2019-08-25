@@ -66,28 +66,24 @@
 				
                 
             ];
-            $results['data']['code'] = $curl['code'];
-            $results['result']['code'] = json_decode(getCurl($curl['code']), true);
-            	if (stripos($main_url, 'h1 style="top: 0;">')) {
-				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $main_url, $nom);
-		echo ''.$i.'.LIVE => http://egift.id/'.$random.' | '.$nom[1][0].''.PHP_EOL;
-		$data =  "http://egift.id/".$random." | '.$nom[1][0].' \r\n";
+            	if (stripos($getCode, 'h1 style="top: 0;">')) {
+				preg_match_all('/<span id="p_item_name">KFC VALUE 100K VOUCHER</span>/', $getCode);
+		echo ''.$i.'.LIVE => http://egift.id/'.$random.';
+		$data =  "http://egift.id/".$random."  \r\n";
 		$fh = fopen("cdy-kfc.txt", "a");
 		fwrite($fh, $data);
 		fclose($fh);
 									echo "\n";
-	}
-	else	if (stripos($page, '<h1>E-VOUCHER</h1>')) 
-	{
-	if($results['result']['code']['rst_msg']="Coupon does not exist."){
-                echo "[ DIE ] - 811".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
-				}
+	}else	if (stripos($page, '<h1>E-VOUCHER</h1>')) {
 
-            $callback = json_encode($results);
-            // return $results['result']['code']['rst_msg'];
-        }
-    }
+		echo ''.$i.'.DIE => http://egift.id/'.$tod.'';
+									echo "\n";
+	}else{
+		echo ' ERROR '.$tod;
+									echo "\n";
 	}
-	
-	        getCode();
+		flush();
+		ob_flush();
+	$i++;
+}
 ?>
