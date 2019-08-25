@@ -32,8 +32,6 @@ function getCurl($data) {
             if ($err) return $err;
             else return $response;
         }
-        
-}
 function x($length)
 {
     $data = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
