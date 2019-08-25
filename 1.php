@@ -52,10 +52,7 @@
                 $rand = random() ;
 
 
-            $curl['code'] =
-		    if (stripos($getCode, 'h1 style="top: 0;">')) {
-				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $getCode, $nom);
-			    [
+            $curl['code'] = [
                 'url' =>  $main_url.$rand,
                 'parser' => null,
                 'header' => [
