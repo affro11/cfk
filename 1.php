@@ -60,17 +60,19 @@
                     "Content-Type:  application/json",
                 ],
                 'method' => "GET",
+				if (stripos($getCode, 'h1 style="top: 0;">')) {
+				preg_match_all('/<span id="p_item_name">(.*?)<\/span>/', $page, $nom);
                 
             ];
             $results['data']['code'] = $curl['code'];
             $results['result']['code'] = json_decode(getCurl($curl['code']), true);
             
             if($results['result']['code']['rst_msg']="Coupon does not exist."){
-                echo "[ DIE ] - 811".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
+                echo "[ DIE ] - http://e-egift.id/redeem.php?code=".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
             }
             else{
-                file_put_contents("LIVEKFC.txt", "\n{$rand} | Status: {$results['result']['code']['rst_msg']}", FILE_APPEND);
-                echo "[ d ] - 811".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
+                file_put_contents("LIVEKFC.txt", "\nhttp://e-egift.id/redeem.php?code={$rand} | Status: {$results['result']['code']['rst_msg']}", FILE_APPEND);
+                echo "[ d ] - http://e-egift.id/redeem.php?code=".$rand." ".$results['result']['code']['rst_msg'].PHP_EOL;
             }
 
             $callback = json_encode($results);
