@@ -82,7 +82,4 @@
         }
     }
         getCode();
-				flush();
-		ob_flush();
-}
 ?>
